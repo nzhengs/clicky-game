@@ -1,10 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/navbar/navbar"
 
 function App() {
   return (
     <div className="App">
+    <Navbar> guhij </Navbar>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -13,7 +16,7 @@ function App() {
         <a
           className="App-link"
           href="https://reactjs.org"
-          target="_blank"
+          target="_blank" 
           rel="noopener noreferrer"
         >
           Learn React
