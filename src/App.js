@@ -1,67 +1,111 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Navbar from "./components/Navbar";
-import Jumbotron from "./components/Jumborton";
-import ImageCard from "./components/ImageCard";
+import React, { Component } from "react";
 
-// const imageCard = [
-//   {
-//     id: 1,
-//     imageLink: ,
-//     clicked: false
-//   },
-//   {
-//     id: 2,
-//     imageLink: ,
-//     clicked: false
-//   },
-//   {
-//     id: 3,
-//     imageLink: ,
-//     clicked: falsee
-//   },
-//   {
-//     id: 4,
-//     imageLink: ,
-//     clicked: falsee
-//   },
-//   {
-//     id: 5,
-//     imageLink: ,
-//     clicked: falsee
-//   },
-//   {
-//     id: 6,
-//     imageLink: ,
-//     clicked: false
-//   }
-// ];
+import "./App.css";
+import Navbar from "./components/Navbar/navbar";
+import Jumbotron from "./components/Jumborton/jumbotron.js";
+import ImageCard from "./components/ImageCard/image.js";
 
+const imageCards = [
+  {
+    id: 1,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166552.svg",
+    clicked: false
+  },
+  {
+    id: 2,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166562.svg",
+    clicked: false
+  },
+  {
+    id: 3,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166556.svg",
+    clicked: false
+  },
+  {
+    id: 4,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166553.svg",
+    clicked: false
+  },
+  {
+    id: 5,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166540.svg",
+    clicked: false
+  },
+  {
+    id: 6,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166548.svg",
+    clicked: false
+  },
+  {
+    id: 7,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166537.svg",
+    clicked: false
+  },
+  {
+    id: 8,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166557.svg",
+    clicked: false
+  },
+  {
+    id: 9,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166556.svg",
+    clicked: false
+  },
+  {
+    id: 10,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166539.svg",
+    clicked: false
+  },
+  {
+    id: 11,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166534.svg",
+    clicked: false
+  },
+  {
+    id: 12,
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166564.svg",
+    clicked: false
+  }
+];
+let count = 0;
 
-function App() {
-  return (
-    <div className="App">
-    <Navbar></Navbar>
-    <Jumbotron></Jumbotron>
-    <ImageCard></ImageCard>
+class App extends Component {
+  // Setting this.state.friends to the friends json array
+  state = {
+    imageCards
+  };
+  onImageClick = id => {
+    count = count + 1;
+    alert(`${id} ${count}`);
+    const imageCard = imageCards.find(imageCard => imageCard.id === id);
+    if (imageCard.clicked) {
+      alert("you Loose");
+    }
+    else {
+      
+    }
+  };
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <Jumbotron />
+        <div className="container">
+          <div className="row">
+            {this.state.imageCards.map(imageCard => {
+              return (
+                <ImageCard
+                  imageCard={imageCard}
+                  clickImage={this.onImageClick}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

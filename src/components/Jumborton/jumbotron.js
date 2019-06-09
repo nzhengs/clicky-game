@@ -1,5 +1,5 @@
 import React from "react";
-import "../Jumborton";
+import "./jumbotron";
 
 function Jumbotron() {
   return (
