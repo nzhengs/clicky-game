@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import shuffle from "lodash/shuffle";
 import "./App.css";
 import Navbar from "./components/Navbar/navbar";
 import Jumbotron from "./components/Jumborton/jumbotron.js";
@@ -76,13 +76,13 @@ class App extends Component {
   };
   onImageClick = id => {
     count = count + 1;
-    alert(`${id} ${count}`);
     const imageCard = imageCards.find(imageCard => imageCard.id === id);
     if (imageCard.clicked) {
       alert("you Loose");
-    }
-    else {
-      
+    } else {
+      imageCard.clicked = true;
+
+      this.setState({ imageCards: shuffle(imageCards) });
     }
   };
 
