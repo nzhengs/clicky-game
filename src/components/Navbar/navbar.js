@@ -11,7 +11,7 @@ function Navbar(props) {
           </a>
         </li>
         <li>
-          <strong>Click an Image to begin</strong>
+          <strong>{props.message}</strong>
         </li>
         <li>
           <strong>Score:</strong> {props.score}

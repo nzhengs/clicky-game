@@ -68,20 +68,41 @@ const imageCards = [
   }
 ];
 let count = 0;
+let topScore = 0;
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    imageCards
+    imageCards,
+    message: "Click an Image to begin"
   };
+
+  storeTopScore(currentScore) {
+    if (currentScore > topScore) {
+      topScore = currentScore;
+    }
+  }
+
+  resetData() {
+    imageCards.forEach(imageCard => {
+      imageCard.clicked = false;
+    });
+  }
+
   onImageClick = id => {
     count = count + 1;
     const imageCard = imageCards.find(imageCard => imageCard.id === id);
-    if (imageCard.clicked) {
-      alert("you Loose");
-    } else {
-      imageCard.clicked = true;
 
+    if (imageCard.clicked) {
+      this.setState({ message: "Your Guess is Incorrect" });
+      this.storeTopScore(count);
+      count = 0;
+      this.setState({ imageCards: shuffle(imageCards) });
+      this.resetData();
+    } else {
+      this.setState({ message: "Your Guess is Correct" });
+
+      imageCard.clicked = true;
       this.setState({ imageCards: shuffle(imageCards) });
     }
   };
@@ -89,7 +110,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar
+          score={count}
+          topScore={topScore}
+          message={this.state.message}
+        />
         <Jumbotron />
         <div className="container">
           <div className="row">
