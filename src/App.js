@@ -13,7 +13,7 @@ const imageCards = [
   },
   {
     id: 2,
-    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166562.svg",
+    imageLink: "https://www.flaticon.com/premium-icon/icons/svg/166/166563.svg",
     clicked: false
   },
   {
@@ -77,34 +77,41 @@ class App extends Component {
     message: "Click an Image to begin"
   };
 
-  storeTopScore(currentScore) {
+  storeTopScore = currentScore => {
     if (currentScore > topScore) {
       topScore = currentScore;
     }
-  }
+  };
 
-  resetData() {
+  resetData = () => {
     imageCards.forEach(imageCard => {
       imageCard.clicked = false;
     });
-  }
+  };
 
   onImageClick = id => {
     count = count + 1;
     const imageCard = imageCards.find(imageCard => imageCard.id === id);
 
     if (imageCard.clicked) {
-      this.setState({ message: "Your Guess is Incorrect" });
-      this.storeTopScore(count);
-      count = 0;
-      this.setState({ imageCards: shuffle(imageCards) });
-      this.resetData();
+      this.endGame();
     } else {
-      this.setState({ message: "Your Guess is Correct" });
-
-      imageCard.clicked = true;
-      this.setState({ imageCards: shuffle(imageCards) });
+      this.onCorrectGuess(imageCard);
     }
+  };
+
+  onCorrectGuess = imageCard => {
+    this.setState({ message: "Your Guess is Correct" });
+    imageCard.clicked = true;
+    this.setState({ imageCards: shuffle(imageCards) });
+  };
+
+  endGame = () => {
+    this.setState({ message: "Your Guess is Incorrect" });
+    this.storeTopScore(count);
+    count = 0;
+    this.setState({ imageCards: shuffle(imageCards) });
+    this.resetData();
   };
 
   render() {

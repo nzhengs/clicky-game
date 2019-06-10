@@ -4,10 +4,10 @@ import "../Navbar/navbar.css";
 function Navbar(props) {
   return (
     <nav>
-      <ul className="nav">
+      <ul className="navbar">
         <li>
           <a className="navbar-brand nav-title" href="/">
-            Clicky Game
+            Test Your Memory
           </a>
         </li>
         <li>
@@ -15,6 +15,7 @@ function Navbar(props) {
         </li>
         <li>
           <strong>Score:</strong> {props.score}
+          <br/>
           <strong>Top Score:</strong> {props.topScore}
           
         </li>
