@@ -11,7 +11,7 @@ function Navbar(props) {
           </a>
         </li>
         <li>
-          <strong>{props.message}</strong>
+          <strong className={props.message === "Your Guess is Correct"? "correct" : props.message === "Your Guess is Incorrect"? "incorrect": "default" }>{props.message}</strong>
         </li>
         <li>
           <strong>Score:</strong> {props.score}

@@ -1,8 +1,6 @@
-
 .nav-title {
   font-size: 35px;
   color: black;
-  font-weight: bolder;
 }
 .navbar {
   background-color: #6caddc;
@@ -10,6 +8,8 @@
   text-align: center;
   margin: 0;
   padding: 0;
+  z-index: 100;
+  position:fixed;
 }
 
 .navbar li {
@@ -19,4 +19,17 @@
   font-weight: bold;
   text-align: center;
   width: 33.3%;
+}
+.default {
+  color: blueviolet;
+  font-size: 20px;
+}
+.correct {
+  color: green;
+  font-size: 25px;
+}
+
+.incorrect {
+  color: red;
+  font-size: 35px;
 }

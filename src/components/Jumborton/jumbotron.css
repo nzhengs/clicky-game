@@ -1,6 +1,7 @@
 .size{
     background-color:gainsboro ;
-    font-size:30px
+    font-size:30px;
+    margin-top: 20px;
 }
 .game-title{
     font-size:50px;
