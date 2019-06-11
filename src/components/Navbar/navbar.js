@@ -4,7 +4,7 @@ import "../Navbar/navbar.css";
 function Navbar(props) {
   return (
     <nav>
-      <ul className="navbar">
+      <ul className="navbar ">
         <li>
           <a className="navbar-brand nav-title" href="/">
             Test Your Memory

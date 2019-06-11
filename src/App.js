@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/navbar";
 import Jumbotron from "./components/Jumborton/jumbotron.js";
 import ImageCard from "./components/ImageCard/image.js";
+import Footer from "./components/Footer/Footer.js"
 
 const imageCards = [
   {
@@ -135,6 +136,7 @@ class App extends Component {
             })}
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
