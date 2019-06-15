@@ -3,9 +3,9 @@ import "../Footer/Footer.css";
 
 function Footer() {
   return (
-    <footer class="sticky-footer">
-      <div class="container">
-        <span class="text">Developed by Anjana H</span>
+    <footer className="sticky-footer">
+      <div className="container">
+        <span className="text">Developed by Anjana H</span>
       </div>
     </footer>
   );
