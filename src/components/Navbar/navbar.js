@@ -3,24 +3,31 @@ import "../Navbar/navbar.css";
 
 function Navbar(props) {
   return (
-    <nav>
-      <ul className="navbar ">
-        <li>
+      <div className="row top-bar">
+        <div className="col-md-4">
           <a className="navbar-brand nav-title" href="/">
             Test Your Memory
           </a>
-        </li>
-        <li>
-          <strong>{props.message}</strong>
-        </li>
-        <li>
+        </div>
+        <div className="col-md-4">
+          <strong
+            className={
+              props.message === "Your Guess is Correct"
+                ? "correct"
+                : props.message === "Your Guess is Incorrect"
+                ? "incorrect"
+                : "default"
+            }
+          >
+            {props.message}
+          </strong>
+        </div>
+        <div className="col-md-4">
           <strong>Score:</strong> {props.score}
-          <br/>
+          <br />
           <strong>Top Score:</strong> {props.topScore}
-          
-        </li>
-      </ul>
-    </nav>
+        </div>
+      </div>
   );
 }
 

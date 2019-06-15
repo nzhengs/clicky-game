@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/navbar";
 import Jumbotron from "./components/Jumborton/jumbotron.js";
 import ImageCard from "./components/ImageCard/image.js";
 import Footer from "./components/Footer/Footer.js"
-
+import Wrapper from "./components/Wrapper/wrapper.js"
 const imageCards = [
   {
     id: 1,
@@ -102,7 +102,7 @@ class App extends Component {
   };
 
   onCorrectGuess = imageCard => {
-    this.setState({ message: "Your Guess is Correct" });
+    this.setState({ message: "Your Guess is Correct" } );
     imageCard.clicked = true;
     this.setState({ imageCards: shuffle(imageCards) });
   };
@@ -121,9 +121,12 @@ class App extends Component {
         <Navbar
           score={count}
           topScore={topScore}
-          message={this.state.message}
+          message={this.state.message} 
         />
+        
+        <Wrapper>
         <Jumbotron />
+
         <div className="container">
           <div className="row">
             {this.state.imageCards.map(imageCard => {
@@ -136,6 +139,7 @@ class App extends Component {
             })}
           </div>
         </div>
+        </Wrapper>
         <Footer/>
       </div>
     );

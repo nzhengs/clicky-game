@@ -3,9 +3,9 @@ import "../Jumborton/jumbotron.css";
 
 function Jumbotron() {
   return (
-    <div class="jumbotron jumbotron-fluid size">
-    <h1 class="game-title">Clicky Game</h1>
-    <p class="game-description">Click on an image to earn points, Failure to click unique image will lead to game end</p>
+    <div className="container size">
+    <h1 className="game-title">Clicky Game</h1>
+    <p className="game-description">Click on an image to earn points, Failure to click unique image will lead to game end</p>
 </div>
   );
 }
